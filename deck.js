@@ -1,18 +1,25 @@
 /* =====================================================================
-   VITARE · Sprint Review 3 · motor do deck
+   VITARE · Sprint Review 3 · motor do deck (v2, direção "título de cinema")
    - palco 1920×1080 escalado para a janela
    - passos por slide (data-step / data-until), classes at-0..at-N no slide
-   - teclado, endereço #id:passo, faixa de progresso por capítulo
-   - notas (N), apresentador (P), tela cheia (F), ajuda (?)
+   - transições entre slides (data-trans no slide que ENTRA; na volta, o inverso):
+       corte  · troca seca
+       fade   · dissolve curto
+       iris   · o slide novo abre de um círculo (data-ox / data-oy do slide que SAI)
+       zoom   · a câmera mergulha no ponto data-ox / data-oy do slide que sai
+       carro  · um carro cruza a tela e o slide novo entra atrás dele (clip-path)
+   - teclado, endereço #id:passo, notas (N), apresentador (P), tela cheia (F), ajuda (?)
+   - prefers-reduced-motion: toda transição vira um fade curto
    ===================================================================== */
 (function () {
   "use strict";
 
   var stage = document.getElementById("stage");
   var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
-  var TOTAL = parseInt(stage.dataset.total || slides.length, 10);
+  var cortina = document.querySelector(".cortina");
+  var TOTAL = slides.length;
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var atual = 0, passo = 0;
+  var atual = -1, passo = 0;
 
   /* ---------- Escala ---------- */
   function escala() {
@@ -55,22 +62,83 @@
     });
   }
 
-  /* ---------- Navegação ---------- */
-  function go(i, p, animar) {
-    i = Math.max(0, Math.min(slides.length - 1, i));
-    var sl = slides[i], mudou = i !== atual || animar === "forca";
-    p = Math.max(0, Math.min(maxPasso(sl), p || 0));
-    slides.forEach(function (s, k) { if (k !== i) s.classList.remove("is-active", "is-in"); });
-    sl.classList.add("is-active");
-    if (mudou || !sl.classList.contains("is-in")) {
-      sl.classList.remove("is-in"); void sl.offsetWidth; sl.classList.add("is-in");
-      conta(sl);
+  /* ---------- Entrada do conteúdo (dispara as animações internas) ---------- */
+  function entra(sl) {
+    sl.classList.remove("is-in"); void sl.offsetWidth; sl.classList.add("is-in");
+    conta(sl);
+  }
+
+  /* ---------- Transições entre slides ---------- */
+  var DUR = { corte: 0, fade: 420, iris: 1000, zoom: 950, carro: 1250 };
+  var REVELA = { iris: 150, zoom: 520, carro: 260 };   // quando o conteúdo novo começa a animar
+  var trans = null;
+
+  function terminaTransicao() {
+    if (!trans) return;
+    trans.timers.forEach(clearTimeout);
+    var f = trans.limpa; trans = null; f();
+  }
+
+  function origem(sl, alvo) {
+    alvo.style.setProperty("--ox", (sl.dataset.ox || 960) + "px");
+    alvo.style.setProperty("--oy", (sl.dataset.oy || 540) + "px");
+  }
+
+  function troca(velho, novo, dir) {
+    terminaTransicao();
+    var tipo = (dir > 0 ? novo : velho).dataset.trans || "fade";
+    if (!velho) tipo = "corte";
+    else if (reduz) tipo = "fade";
+
+    novo.classList.add("is-active");
+    if (tipo === "corte") {
+      if (velho) velho.classList.remove("is-active", "is-in");
+      entra(novo);
+      return;
     }
-    atual = i; passo = p;
-    aplicaPasso(sl, p);
-    stage.classList.toggle("sem-chrome", sl.hasAttribute("data-sem-chrome"));
-    stage.classList.toggle("claro", sl.classList.contains("claro"));  // chrome acompanha o slide claro
-    chrome(sl);
+
+    var marcas = ["t-" + tipo]; if (dir < 0) marcas.push("volta");
+    // a íris e o zoom usam o ponto do slide que fica "antes" na história
+    var ref = dir > 0 ? velho : novo;
+    origem(ref, novo); origem(ref, velho);
+
+    velho.classList.add("sai"); marcas.forEach(function (m) { velho.classList.add(m); });
+    novo.classList.add("entra"); marcas.forEach(function (m) { novo.classList.add(m); });
+    stage.classList.add("em-transicao");
+    if (tipo === "carro") {
+      cortina.classList.remove("anda", "volta"); void cortina.offsetWidth;
+      cortina.classList.add("anda"); if (dir < 0) cortina.classList.add("volta");
+    }
+
+    var timers = [];
+    var limpa = function () {
+      velho.classList.remove("sai", "is-active", "is-in", "volta", "t-" + tipo);
+      novo.classList.remove("entra", "volta", "t-" + tipo);
+      cortina.classList.remove("anda", "volta");
+      stage.classList.remove("em-transicao");
+      if (!novo.classList.contains("is-in")) entra(novo);
+    };
+    var rev = REVELA[tipo] || 0;
+    if (rev && !reduz) timers.push(setTimeout(function () { entra(novo); }, rev)); else entra(novo);
+    timers.push(setTimeout(function () { var f = limpa; trans = null; f(); }, DUR[tipo] || 500));
+    trans = { timers: timers, limpa: limpa };
+  }
+
+  /* ---------- Navegação ---------- */
+  function go(i, p, forca) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    var sl = slides[i];
+    p = Math.max(0, Math.min(maxPasso(sl), p || 0));
+    if (i !== atual) {
+      var velho = atual >= 0 ? slides[atual] : null, dir = i > atual ? 1 : -1;
+      atual = i; passo = p;
+      aplicaPasso(sl, p);
+      troca(velho, sl, dir);
+    } else {
+      passo = p;
+      aplicaPasso(sl, p);
+      if (forca) entra(sl);
+    }
     var h = "#" + sl.id + (p ? ":" + p : "");
     if (location.hash !== h) history.replaceState(null, "", h);
     notas(sl);
@@ -79,37 +147,13 @@
   function prox() { if (passo < maxPasso(slides[atual])) go(atual, passo + 1); else if (atual < slides.length - 1) go(atual + 1, 0); }
   function ant() { if (passo > 0) go(atual, passo - 1); else if (atual > 0) go(atual - 1, maxPasso(slides[atual - 1])); }
 
-  /* ---------- Chrome: nível e faixa ---------- */
-  var caps = [];
-  slides.forEach(function (s) {
-    var c = s.dataset.chapter;
-    if (c !== undefined && !caps.some(function (x) { return x.c === c; })) caps.push({ c: c, nome: s.dataset.chapterName || "" });
-  });
-  var lane = document.querySelector(".lane__caps");
-  var capEls = (stage.dataset.capitulos || "").split("|").map(function (nome, k) {
-    var el = document.createElement("span");
-    el.className = "lane__cap"; el.textContent = String(k); el.dataset.nome = nome;
-    lane.appendChild(el); return el;
-  });
-  var capInicio = (stage.dataset.capInicio || "").split(",").map(Number); // nº do 1º slide de cada capítulo
-  capEls.forEach(function (el, k) { el.style.left = ((capInicio[k] - 1) / (TOTAL - 1) * 100) + "%"; });
-
-  function chrome(sl) {
-    var n = slides.indexOf(sl) + 1, numero = parseInt(sl.dataset.n || n, 10);
-    document.querySelector(".lane__feito").style.width = "calc((100% - 120px) * " + ((numero - 1) / (TOTAL - 1)) + ")";
-    document.querySelector(".lane__num").innerHTML = String(numero).padStart(2, "0") + "<span> / " + TOTAL + "</span>";
-    var c = parseInt(sl.dataset.chapter, 10);
-    capEls.forEach(function (el, k) { el.classList.toggle("atual", k === c); });
-    var nv = document.querySelector(".chrome-top .nivel");
-    nv.innerHTML = "<b>" + String(c).padStart(2, "0") + "</b>" + (sl.dataset.chapterName || "");
-  }
-
-  /* ---------- Notas (N) ---------- */
+  /* ---------- Notas (N): o contador mora aqui, não na tela ---------- */
   var painelNotas = document.querySelector(".notas"), t0 = null;
+  function rotulo(sl) { return String(sl.dataset.n || slides.indexOf(sl) + 1).padStart(2, "0") + " / " + TOTAL + " · " + (sl.dataset.title || ""); }
   function notas(sl) {
     var a = sl.querySelector("aside.notes");
-    painelNotas.querySelector(".corpo").innerHTML = a ? a.innerHTML : "<p class='palco'>Sem notas.</p>";
-    painelNotas.querySelector(".titulo").textContent = (sl.dataset.n || slides.indexOf(sl) + 1) + " · " + (sl.dataset.title || "");
+    painelNotas.querySelector(".corpo-nota").innerHTML = a ? a.innerHTML : "<p class='palco'>Sem notas.</p>";
+    painelNotas.querySelector(".titulo-nota").textContent = rotulo(sl) + " · passo " + passo + "/" + maxPasso(sl);
   }
   setInterval(function () {
     if (!t0) return;
@@ -136,7 +180,7 @@
     notas = function (sl) {
       orig(sl);
       var a = sl.querySelector("aside.notes"), i = slides.indexOf(sl), nx = slides[i + 1];
-      pa.querySelector(".pa-notas").innerHTML = "<p class='pa-prox'>" + (sl.dataset.n || i + 1) + " · " + (sl.dataset.title || "") + " · passo " + passo + "/" + maxPasso(sl) + "</p>" + (a ? a.innerHTML : "");
+      pa.querySelector(".pa-notas").innerHTML = "<p class='pa-atual'>" + rotulo(sl) + " · passo " + passo + "/" + maxPasso(sl) + "</p>" + (a ? a.innerHTML : "");
       pa.querySelector(".pa-prox").textContent = nx ? "Próximo: " + (nx.dataset.title || "") : "Fim";
     };
   }
@@ -152,28 +196,11 @@
     else if (k === "n" || k === "N") { painelNotas.classList.toggle("aberta"); if (!t0) t0 = Date.now(); }
     else if (k === "p" || k === "P") window.open(location.pathname + "?apresentador" + location.hash, "vitare-apresentador", "width=1100,height=760");
     else if (k === "f" || k === "F") { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
-    else if (k === "r" || k === "R") go(atual, passo, "forca");
+    else if (k === "r" || k === "R") go(atual, passo, true);
     else if (k === "?" || k === "h" || k === "H") document.querySelector(".ajuda").classList.toggle("aberta");
     else if (k === "Escape") { painelNotas.classList.remove("aberta"); document.querySelector(".ajuda").classList.remove("aberta"); }
   });
-  /* ---------- Vídeos de backup dos testes ---------- */
-  // O vídeo só carrega quando alguém clica no espaço (o slide não depende do arquivo).
-  // Sem o arquivo em video/, o espaço avisa onde colocá-lo. O vídeo pausa ao sair do slide.
-  document.querySelectorAll(".reserva[data-video]").forEach(function (box) {
-    box.addEventListener("click", function () {
-      if (box.querySelector("video")) return;
-      var v = document.createElement("video");
-      v.controls = true; v.playsInline = true; v.src = box.dataset.video;
-      v.addEventListener("error", function () { box.classList.add("sem-video"); v.remove(); });
-      v.addEventListener("loadeddata", function () { box.classList.add("com-video"); v.play(); });
-      box.appendChild(v);
-    });
-  });
-  function pausaVideos() { document.querySelectorAll(".reserva video").forEach(function (v) { if (!v.closest(".is-active")) v.pause(); }); }
-  stage.addEventListener("transitionend", pausaVideos);
-
   stage.addEventListener("click", function (e) {
-    if (e.target.closest("video, a, .reserva")) return;  // controles do vídeo não avançam o slide
     var r = stage.getBoundingClientRect();
     if (e.clientX < r.left + r.width * 0.25) ant(); else prox();
   });
@@ -186,6 +213,9 @@
   }
   window.addEventListener("hashchange", function () { var h = lerHash(); if (h.i !== atual || h.p !== passo) go(h.i, h.p); });
   var h = lerHash();
-  atual = -1;
   go(h.i, h.p);
+
+  /* ---------- Teste das transições: ?avanca=ms (ou ?volta=ms) abre no #slide:passo e avança sozinho ---------- */
+  var teste = location.search.match(/[?&](avanca|volta)=?(\d*)/);
+  if (teste) setTimeout(teste[1] === "avanca" ? prox : ant, parseInt(teste[2] || "300", 10));
 })();
