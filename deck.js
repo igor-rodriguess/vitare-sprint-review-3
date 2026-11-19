@@ -35,6 +35,7 @@
     sl.querySelectorAll("[data-step],[data-until]").forEach(function (el) {
       m = Math.max(m, parseInt(el.dataset.step || 0, 10), parseInt(el.dataset.until || 0, 10));
     });
+    sl.querySelectorAll("video[data-pausas]").forEach(function (v) { m = Math.max(m, pausas(v).length); });
     return m;
   }
   function aplicaPasso(sl, p) {
@@ -69,14 +70,25 @@
     midia(sl);
   }
 
-  /* ---------- Vídeo no slide: toca do começo ao entrar (e no R) e para nos outros ---------- */
+  /* ---------- Vídeo no slide: toca por partes e para no fim de cada uma ----------
+     data-pausas="t1,t2,..." no <video>: o passo 0 toca de 0 até t1, o passo 1 de t1 até t2, e o
+     último passo vai até o fim. Sem data-pausas, toca do começo ao fim. R repete a parte atual. */
+  var vigia = null;
+  function pausas(v) { return (v.getAttribute("data-pausas") || "").split(",").filter(Boolean).map(Number); }
   function midia(ativo) {
+    if (vigia) { cancelAnimationFrame(vigia); vigia = null; }
     slides.forEach(function (sl) {
       sl.querySelectorAll("video").forEach(function (v) {
-        if (sl === ativo) {
-          try { v.currentTime = 0; } catch (e) {}
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
-        } else if (!v.paused) v.pause();
+        if (sl !== ativo) { if (!v.paused) v.pause(); return; }
+        var ps = pausas(v), ini = passo > 0 ? (ps[passo - 1] || 0) : 0, fim = passo < ps.length ? ps[passo] : Infinity;
+        // seguindo da parte anterior o vídeo já está no ponto certo; voltando ou no R, ele pula para o começo da parte
+        if (Math.abs(v.currentTime - ini) > 0.3) { try { v.currentTime = ini; } catch (e) {} }
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+        if (fim === Infinity) return;
+        (function olha() {
+          if (v.currentTime >= fim) { v.pause(); vigia = null; return; }
+          vigia = requestAnimationFrame(olha);
+        })();
       });
     });
   }
@@ -150,7 +162,7 @@
     } else {
       passo = p;
       aplicaPasso(sl, p);
-      if (forca) entra(sl);
+      if (forca) entra(sl); else midia(sl);   // no mesmo slide, o passo novo toca a próxima parte do vídeo
     }
     var h = "#" + sl.id + (p ? ":" + p : "");
     if (location.hash !== h) history.replaceState(null, "", h);

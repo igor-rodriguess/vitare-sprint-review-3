@@ -986,11 +986,10 @@
   </section>
 
   <!-- 12 · O CÉREBRO DO KIT (Isaías → Igor)
-       passos: 0 biblioteca e 27 testes · 1 SP2 e custo · 2 fecho do Igor -->
+       passos: 0 biblioteca, 27 testes e o gráfico · 1 SP2 e custo · 2 fecho do Igor
+       Os números do gráfico vêm dos 27 RUN_TEST de test/test_logica/test_main.cpp. -->
   <section class="slide claro s-cerebro" id="cerebro" data-n="12" data-title="O cérebro do kit" data-trans="corte">
     <h2 class="titulo">Regras testadas<br><em>sem a placa.</em></h2>
-
-    <div class="vinte7"><b data-count="27" data-delay=".5">27</b><span>testes automáticos das regras, rodando no computador</span></div>
 
     <div class="lib">
       <p class="pasta"><code>lib/vitare</code> · sem pino, rádio nem relógio</p>
@@ -1007,6 +1006,18 @@
       </div>
     </div>
 
+    <div class="vinte7"><b data-count="27" data-delay=".5">27</b><span>testes automáticos das regras, rodando no computador</span></div>
+
+    <div class="grafico-testes" role="img" aria-label="Testes por parte do firmware: alerta e distância 8, botão 7, rádio e cadastro 5, display 3, autoteste e bateria 2, relógio e telemetria 2">
+      <p class="tit">Testes por parte do firmware</p>
+      <div class="linha-g" style="--n:8;--i:0"><span>Alerta e distância</span><i></i><b>8</b></div>
+      <div class="linha-g" style="--n:7;--i:1"><span>Botão</span><i></i><b>7</b></div>
+      <div class="linha-g" style="--n:5;--i:2"><span>Rádio e cadastro</span><i></i><b>5</b></div>
+      <div class="linha-g" style="--n:3;--i:3"><span>Display</span><i></i><b>3</b></div>
+      <div class="linha-g" style="--n:2;--i:4"><span>Autoteste e bateria</span><i></i><b>2</b></div>
+      <div class="linha-g" style="--n:2;--i:5"><span>Relógio e telemetria</span><i></i><b>2</b></div>
+    </div>
+
     <div class="placar" data-step="1">
       <p class="tit">De onde viemos · SP2</p>
       <div class="barra"><i style="width:64.7%;background:#2f7d1f"></i><i style="width:35.3%;background:var(--atencao)"></i></div>
@@ -1021,8 +1032,9 @@
     <p class="fecho" data-step="2">Na SP2, o kit funcionava sozinho na mesa. <span>Agora tem rede, memória e manual.</span></p>
 
     <aside class="notes">
-      <p class="palco">Isaías apresenta a biblioteca e os testes; Igor fecha.</p>
-      <p data-who="isaías">As regras de decisão ficam numa biblioteca separada, sem pino nem rádio, e por isso são testáveis: 27 testes automáticos. Ela decide a prioridade (falha, perigo, atenção), o lembrete “Recolha os sensores” depois de 20 s parado, o autoteste e o desligamento depois de 10 min sem sensores.</p>
+      <p class="palco">Isaías apresenta a biblioteca, os testes e o gráfico; Igor fecha.</p>
+      <p data-who="isaías">“As regras de decisão ficam numa biblioteca separada, sem pino nem rádio, e por isso dá para testar tudo no computador: são 27 testes automáticos. Ela decide a prioridade entre falha, perigo e atenção, o lembrete ‘Recolha os sensores’ depois de 20 s parado, o autoteste e o desligamento depois de 10 min sem sensores.”</p>
+      <p data-who="isaías">“O gráfico mostra onde estão os testes: 8 no alerta e nas faixas de distância, 7 no botão, 5 no rádio e no cadastro dos sensores, 3 no display, 2 no autoteste e na bateria e 2 no relógio e na telemetria.”</p>
       <p class="palco">Passo 1: o placar da SP2 e o custo.</p>
       <p class="palco">Passo 2: a faixa floresta entra com o fecho.</p>
       <p data-who="igor">“Na SP2 o kit funcionava sozinho na mesa. Nesta sprint ele ganhou rede, memória e um manual pra qualquer pessoa montar.”</p>
@@ -1067,7 +1079,7 @@
   </section>
 
   <!-- =====================================================================
-       CAPÍTULO F · FECHAMENTO (fundo papel) · slides 14 e 15; o vídeo e o time em floresta (16 e 17)
+       CAPÍTULO F · FECHAMENTO (fundo papel) · slide 14; o vídeo e o time em floresta (15 e 16)
        ===================================================================== -->
 
   <!-- 14 · ROADMAP (Igor) — cinco colunas em grade pesada -->
@@ -1093,60 +1105,22 @@
     </aside>
   </section>
 
-  <!-- 15 · AGORA É COM VOCÊS — o parceiro prepara o kit (Igor)
-       Ponte para a demonstração ao vivo, que acontece fora dos slides.
-       passos: 0 título · 1, 2, 3 cada passo da seção 5.2 do manual -->
-  <section class="slide claro s-parceiro" id="parceiro" data-n="15" data-title="Agora é com vocês" data-trans="corte">
-    <h2 class="titulo">Agora é <em>com vocês.</em></h2>
-    <p class="quem">O representante da Estapar prepara o kit seguindo o manual. O grupo só orienta.</p>
-
-    <div class="passos3">
-      <div class="passo" data-step="1">
-        <b class="num">1</b>
-        <svg class="ico-segura" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="44"/><path d="M60 16 a44 44 0 1 1 -0.1 0"/><rect x="48" y="48" width="24" height="24" rx="6"/></svg>
-        <h3>Segure o botão por 3 segundos</h3>
-        <p>Um toque curto não liga, para ninguém ligar sem querer.</p>
-      </div>
-      <div class="passo" data-step="2">
-        <b class="num">2</b>
-        <svg class="ico-som" viewBox="0 0 120 120" aria-hidden="true"><rect x="14" y="44" width="22" height="32" rx="3"/><polygon points="36,44 62,22 62,98 36,76"/><path d="M76 44 a22 22 0 0 1 0 32M88 32 a38 38 0 0 1 0 56"/></svg>
-        <h3>Espere a pulseira dizer “Ligado”</h3>
-        <p>Ela fala junto a bateria.</p>
-      </div>
-      <div class="passo" data-step="3">
-        <b class="num">3</b>
-        <svg class="ico-led2" viewBox="0 0 120 120" aria-hidden="true"><circle class="h" cx="60" cy="60" r="52"/><circle class="l" cx="60" cy="60" r="26"/></svg>
-        <h3>Espere o LED azul acender</h3>
-        <p>Em até 10 s. Só então o carro anda.</p>
-      </div>
-    </div>
+  <!-- 15 · A SIMULAÇÃO (Isaías) — o vídeo da proposta: OCR, mapa de risco, beacons e pulseira
+       passos: 0 a 9, uma parte do vídeo por passo; o vídeo para sozinho no fim de cada parte (data-pausas, deck.js) -->
+  <section class="slide s-video" id="diferenciais-video" data-n="15" data-title="Simulação da proposta" data-trans="carro">
+    <video class="video-cheio" src="video/ocr-placa-vaga.mp4" data-pausas="21.84,32.36,44.32,52.42,61,71.89,90.86,105.83,122.59" muted playsinline preload="auto" aria-label="Simulação: leitura da placa, mapa de risco, beacons e pulseira"></video>
 
     <aside class="notes">
-      <p data-who="igor">“E pra mostrar que o manual funciona, quem vai preparar o kit agora é o parceiro, seguindo a seção 5, ‘Antes da manobra’.”</p>
-      <p class="palco">O representante da Estapar segura o botão por 3 s, escuta “Ligado”, espera o LED azul e coloca a pulseira. Avançar um passo a cada ação dele: o painel acende. É a dica do Fabio: o parceiro faz o teste enquanto o grupo orienta.</p>
-      <p class="palco">Demonstração ao vivo, fora dos slides, com o dashboard do Node-RED projetado:</p>
-      <p class="palco">1) ESP-NOW (CT64): mão a 45 cm (atenção, pulsos) e a 10 cm (perigo, vibração contínua); desligar o sensor pelo USB: em até ~3 s a pulseira avisa e o LED azul apaga; religar volta sem reiniciar a pulseira.</p>
-      <p class="palco">2) MQTT (CT65): perigo mantido, desligar o roteador por 30 s: voz e vibração continuam; ao religar, os registros da fila sobem para o dashboard. “O reflexo não depende da memória.”</p>
-      <p class="palco">3) Display I2C (CT74 e CT41): 1 clique mostra o kit e a bateria (no USB, “não conectada”) e apaga em 10 s; 2 cliques fazem o autoteste.</p>
-      <p class="palco">Na PoC o kit tem um sensor e é alimentado pelo USB. Depois da demonstração, avançar para o vídeo da simulação.</p>
+      <p class="palco">O vídeo dura 2 min 10 s, sem som, e para sozinho no fim de cada parte. Cada seta toca a próxima parte; depois da última, a seta vai para o time. R repete a parte atual.</p>
+      <p class="palco">Partes: 1 abertura e leitura da placa (até 0:22) · 2 rede 1, a grade que acha a placa (0:32) · 3 rede 2, o filtro 3 × 3 (0:44) · 4 as camadas da rede (0:52) · 5 a saída e a regra do Mercosul (1:01) · 6 o valor do carro (1:12) · 7 o mapa de risco e a vaga 116 (1:31) · 8 os beacons (1:46) · 9 a pulseira guiando até a vaga (2:03) · 10 fecho.</p>
+      <p data-who="isaías">“Na parte 5, a rede lê 5 no lugar do S, com nota 0,58. Como a primeira posição da placa Mercosul só aceita letra, o sistema fica com a letra mais provável: o S.”</p>
+      <p data-who="isaías">“Na parte 8, a pulseira não usa GPS, que não pega no subsolo. Ela fica com o beacon de sinal mais forte e só troca de zona quando outro passa 3 dB na frente.”</p>
+      <p class="palco">Se perguntarem: os dados são fictícios. A rede é um exemplo de arquitetura (552 mil pesos, cerca de 2,2 MB) e ainda precisa de treino com placas reais.</p>
     </aside>
   </section>
 
-  <!-- 16 · A SIMULAÇÃO (Isaías) — o vídeo da proposta: OCR, mapa de risco, beacons e pulseira; toca sozinho ao entrar e R repete -->
-  <section class="slide s-video" id="diferenciais-video" data-n="16" data-title="Simulação da proposta" data-trans="carro">
-    <video class="video-cheio" src="video/ocr-placa-vaga.mp4" muted playsinline preload="auto" aria-label="Simulação: leitura da placa, mapa de risco, beacons e pulseira"></video>
-
-    <aside class="notes">
-      <p class="palco">O vídeo começa sozinho e dura 1 min 31 s, sem som. R repete do começo. Narrar por cima, sem ler as legendas.</p>
-      <p class="palco">0:05 a câmera lê a placa · 0:17 as duas redes neurais (grade de detecção, filtro 3 × 3, camadas e a regra do Mercosul) · 0:39 o valor do carro · 0:48 o mapa de risco e a vaga 116 · 1:01 os beacons · 1:11 a pulseira guiando até a vaga · 1:25 fecho.</p>
-      <p data-who="isaías">“Aqui a rede lê 5 no lugar do S, com nota 0,58. Como a primeira posição da placa Mercosul só aceita letra, o sistema fica com a letra mais provável: o S.”</p>
-      <p data-who="isaías">“A pulseira não usa GPS, que não pega no subsolo. Ela fica com o beacon de sinal mais forte e só troca de zona quando outro passa 3 dB na frente.”</p>
-      <p class="palco">Se perguntarem: os dados são fictícios. A rede é um exemplo de arquitetura (552 mil pesos, cerca de 2,2 MB) e ainda precisa de treino com placas reais. O arquivo fica em video/ocr-placa-vaga.mp4, fora do git, como os vídeos de backup dos testes.</p>
-    </aside>
-  </section>
-
-  <!-- 17 · O TIME (Igor) — fundo floresta para fechar -->
-  <section class="slide s-time" id="time" data-n="17" data-title="O time" data-trans="corte">
+  <!-- 16 · O TIME (Igor) — fundo floresta para fechar -->
+  <section class="slide s-time" id="time" data-n="16" data-title="O time" data-trans="corte">
     <div class="trafego trafego--topo" aria-hidden="true">
       <i class="pista"></i>
       <svg class="veic" style="--d:8s;--a:-2s;color:#70d44b" viewBox="-210 -105 420 210"><use href="#carro-dir"/></svg>

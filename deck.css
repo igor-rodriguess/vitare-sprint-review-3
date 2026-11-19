@@ -189,7 +189,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 /* passo 1: corte seco, o fundo vira verde e a pergunta sangra a borda */
 .s-mapa .pergunta-grande { inset: 0; transition: none; }
 .s-mapa .pergunta-grande p { position: absolute; left: 96px; top: 230px; font: 400 76px/1 "Placa", sans-serif; text-transform: uppercase; color: var(--floresta); }
-.s-mapa .pergunta-grande b { position: absolute; left: -14px; top: 330px; font: 400 300px/.84 "Placa", sans-serif; text-transform: uppercase; color: var(--floresta); white-space: nowrap; font-weight: 400; letter-spacing: -.02em; }
+.s-mapa .pergunta-grande b { position: absolute; left: 96px; top: 330px; font: 400 300px/.84 "Placa", sans-serif; text-transform: uppercase; color: var(--floresta); white-space: nowrap; font-weight: 400; letter-spacing: -.02em; }
 .s-mapa.at-1 { background: #70d44b; }
 .s-mapa.at-1 > :not(.pergunta-grande) { visibility: hidden; }
 .s-mapa.at-1 .pergunta-grande b { animation: corteTitulo .5s var(--corte) both; }
@@ -204,7 +204,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .s-capa .creditos { left: 96px; top: 300px; }
 .s-capa .creditos p { font: 600 26px/1.7 "Texto", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--suave); }
 .s-capa .creditos .sub { margin-top: 28px; font: 400 52px/1 "Placa", sans-serif; letter-spacing: 0; color: var(--texto); }
-.s-capa .marca-gigante { left: -22px; bottom: 6px; font: 400 440px/.8 "Placa", sans-serif; letter-spacing: -.03em; color: var(--texto); white-space: nowrap; }
+.s-capa .marca-gigante { left: 96px; bottom: 60px; font: 400 380px/.8 "Placa", sans-serif; letter-spacing: -.03em; color: var(--texto); white-space: nowrap; }
 .s-capa .marca-gigante span { color: #70d44b; }
 .slide.is-in.s-capa .marca-gigante { animation: corteBaixo .8s var(--corte) both .15s; }
 .slide.is-in.s-capa .creditos p { animation: corteTitulo .6s var(--corte) both; }
@@ -418,7 +418,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .s-reflexo .cena-reflexo { left: 0; top: 0; width: 1000px; height: 1080px; transition: none; }
 .s-reflexo .cena-quebra { left: 0; top: 0; width: 1920px; height: 1080px; transition: none; }
 .s-reflexo .titulo { left: 1060px; top: 90px; width: 800px; font-size: 70px; }
-.s-reflexo .palavra-fundo { left: -40px; bottom: -70px; font: 400 360px/.8 "Placa", sans-serif; text-transform: uppercase; color: var(--bg-3); letter-spacing: -.03em; transition: none; }
+.s-reflexo .palavra-fundo { left: 96px; bottom: 50px; font: 400 190px/.8 "Placa", sans-serif; text-transform: uppercase; color: var(--bg-3); letter-spacing: -.03em; transition: none; }
 .s-reflexo.at-3 .palavra-fundo { animation: corteBaixo .7s var(--corte) both 2.6s; }
 
 /* fogão e panela, chapados */
@@ -610,30 +610,38 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .texto-debounce code { display: block; margin-top: 14px; font: 400 28px/1.1 "Placa", sans-serif; color: #70d44b; white-space: nowrap; }
 
 /* =====================================================================
-   12 · O CÉREBRO DO KIT — "27" gigante sangrando a borda direita
+   12 · O CÉREBRO DO KIT — regras à esquerda; o 27 e o gráfico dos testes à direita
    ===================================================================== */
-.s-cerebro .titulo { width: 1040px; font-size: 72px; }
-.s-cerebro .vinte7 { left: 1250px; top: 30px; width: 700px; }
-.s-cerebro .vinte7 b { display: block; font: 400 600px/.8 "Placa", sans-serif; color: var(--verde); letter-spacing: -.04em; }
-.s-cerebro .vinte7 span { display: block; margin: 20px 0 0 30px; width: 560px; font: 600 26px/1.25 "Texto", sans-serif; }
+.s-cerebro .titulo { width: 820px; font-size: 72px; }
+.s-cerebro .vinte7 { left: 1000px; top: 70px; width: 824px; display: flex; align-items: center; gap: 34px; }
+.s-cerebro .vinte7 b { display: block; font: 400 200px/.8 "Placa", sans-serif; color: var(--verde); letter-spacing: -.03em; }
+.s-cerebro .vinte7 span { display: block; width: 420px; font: 600 26px/1.3 "Texto", sans-serif; }
+.grafico-testes { left: 1000px; top: 320px; width: 824px; }
+.grafico-testes .tit { font: 600 18px/1 "Texto", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); margin-bottom: 14px; }
+.linha-g { display: grid; grid-template-columns: 250px 1fr 44px; align-items: center; gap: 20px; height: 66px; border-top: 2px solid var(--linha); }
+.linha-g span { font: 600 22px/1.2 "Texto", sans-serif; }
+.linha-g i { display: block; height: 28px; width: calc(var(--n) / 8 * 100%); background: var(--verde); transform-origin: left; }
+.linha-g b { font: 400 36px/1 "Placa", sans-serif; color: var(--verde); text-align: right; }
 .slide.is-in.s-cerebro .vinte7 b { animation: corteBaixo .7s var(--corte) both .2s; }
-.lib { left: 96px; top: 300px; width: 1050px; }
+.lib { left: 96px; top: 300px; width: 820px; }
 .lib .pasta { font: 600 21px/1 "Texto", sans-serif; color: var(--suave); letter-spacing: .04em; margin-bottom: 20px; }
 .lib .pasta code { font: 700 25px "Texto", sans-serif; color: var(--verde); }
 .prioridade { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
 .prioridade span { font: 400 32px/1 "Placa", sans-serif; text-transform: uppercase; padding: 14px 20px 10px; color: #fff; }
 .prioridade i { font: 400 36px/1 "Placa"; color: var(--suave); font-style: normal; }
-.regras div { display: grid; grid-template-columns: 300px 1fr; gap: 24px; border-top: 4px solid var(--linha); padding: 16px 0; align-items: baseline; }
-.regras b { font: 400 30px/1.05 "Placa", sans-serif; text-transform: uppercase; color: var(--verde); }
-.regras p { font: 400 23px/1.35 "Texto", sans-serif; }
-.placar { left: 1290px; top: 650px; width: 560px; }
-.placar .tit { font: 600 18px/1 "Texto", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); margin-bottom: 14px; }
-.placar .barra { display: flex; height: 28px; margin-bottom: 16px; }
+.regras div { display: grid; grid-template-columns: 300px 1fr; gap: 24px; border-top: 4px solid var(--linha); padding: 14px 0; align-items: baseline; }
+.regras b { font: 400 28px/1.05 "Placa", sans-serif; text-transform: uppercase; color: var(--verde); }
+.regras p { font: 400 22px/1.35 "Texto", sans-serif; }
+/* passo 1: o placar da SP2 numa faixa compacta embaixo das regras */
+.placar { left: 96px; top: 752px; width: 820px; }
+.placar .tit { font: 600 18px/1 "Texto", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); margin-bottom: 12px; }
+.placar .barra { display: flex; height: 24px; margin-bottom: 12px; }
 .placar .barra i { display: block; height: 100%; }
-.placar .nums { display: grid; grid-template-columns: repeat(3, 1fr); }
-.placar .nums b { display: block; font: 400 66px/1 "Placa", sans-serif; }
-.placar .nums span { font: 400 17px/1.3 "Texto", sans-serif; color: var(--suave); }
-.placar .custo { margin-top: 20px; font: 400 20px/1.4 "Texto", sans-serif; }
+.placar .nums { display: flex; gap: 44px; }
+.placar .nums div { display: flex; align-items: baseline; gap: 10px; }
+.placar .nums b { display: block; font: 400 42px/1 "Placa", sans-serif; }
+.placar .nums span { font: 400 19px/1.3 "Texto", sans-serif; color: var(--suave); }
+.placar .custo { margin-top: 10px; font: 400 20px/1.4 "Texto", sans-serif; }
 .placar .custo b { font: 400 34px/1 "Placa", sans-serif; color: var(--verde); }
 .placar .custo span { color: var(--suave); }
 /* passo 2: faixa floresta de ponta a ponta com o fecho */
@@ -688,32 +696,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .sprint.prox li { color: #55665f; }
 
 /* =====================================================================
-   15 · AGORA É COM VOCÊS — três painéis que acendem um a um
-   ===================================================================== */
-.s-parceiro .titulo { top: 60px; font-size: 120px; }
-.s-parceiro .quem { left: 96px; top: 210px; font: 400 30px/1.3 "Texto", sans-serif; color: var(--suave); }
-.s-parceiro .passos3 { left: 0; top: 300px; width: 1920px; height: 780px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.passo { position: relative; background: var(--bg-2); padding: 46px 48px; }
-.s-parceiro .passo[data-step] { opacity: 1; transition: none; }
-.passo .num { display: block; font: 400 220px/.85 "Placa", sans-serif; color: var(--verde); }
-.passo svg { position: absolute; right: 48px; top: 56px; width: 120px; height: 120px; }
-.passo h3 { margin-top: 40px; font: 400 48px/1.02 "Placa", sans-serif; text-transform: uppercase; }
-.passo p { margin-top: 18px; font: 400 25px/1.4 "Texto", sans-serif; color: var(--suave); }
-/* painel aceso: corte seco para floresta */
-.passo.on { background: var(--floresta); color: #fff; --suave: rgba(255,255,255,.75); }
-.passo.on .num { color: #70d44b; }
-.ico-segura circle { fill: none; stroke: currentColor; stroke-width: 6; opacity: .35; }
-.ico-segura path { fill: none; stroke: #70d44b; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 280; stroke-dashoffset: 280; }
-.ico-segura rect { fill: #70d44b; }
-.passo.on .ico-segura path { animation: desenha 3s linear forwards .1s; }
-.ico-som path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; }
-.ico-som rect, .ico-som polygon { fill: currentColor; }
-.ico-led2 circle.l { fill: var(--led); }
-.ico-led2 circle.h { fill: var(--led); opacity: .25; transform-origin: 60px 60px; }
-.passo.on .ico-led2 circle.h { animation: halo 1.6s ease-in-out infinite; }
-
-/* =====================================================================
-   17 · O TIME — fotos recortadas e "obrigado" sangrando a borda de baixo
+   16 · O TIME — fotos recortadas e "obrigado" sangrando a borda de baixo
    ===================================================================== */
 .s-time .time { left: 96px; right: 96px; top: 250px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 26px; }
 .membro { text-align: center; opacity: 0; }
@@ -721,7 +704,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .membro img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 8px var(--floresta), 0 0 0 14px #70d44b; }
 .membro b { display: block; margin-top: 30px; font: 400 27px/1.1 "Placa", sans-serif; text-transform: uppercase; font-weight: 400; }
 .s-time .assinatura { left: 0; width: 1920px; top: 580px; text-align: center; font: 600 22px/1 "Texto", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--suave); }
-.s-time .obrigado { left: -12px; bottom: -20px; font: 400 330px/.8 "Placa", sans-serif; text-transform: uppercase; letter-spacing: -.03em; white-space: nowrap; }
+.s-time .obrigado { left: 96px; bottom: 60px; font: 400 230px/.8 "Placa", sans-serif; text-transform: uppercase; letter-spacing: -.03em; white-space: nowrap; }
 .s-time .obrigado span { color: #70d44b; }
 .slide.is-in.s-time .obrigado { animation: corteBaixo .8s var(--corte) both .7s; }
 
@@ -885,6 +868,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .placar .barra i { transform-origin: left; }
 .s-cerebro.at-1 .placar .barra i { animation: cresceX .9s var(--corte) both .1s; }
 .s-cerebro.at-1 .placar .barra i + i { animation-delay: .6s; }
+.slide.is-in.s-cerebro .linha-g i { animation: cresceX .8s var(--corte) both; animation-delay: calc(.7s + var(--i) * .12s); }
 
 /* 14 · a estrada das sprints: o carro herói anda até "hoje" */
 .s-roadmap .estrada { left: 0; top: 150px; width: 1920px; height: 70px; background: var(--floresta); overflow: hidden; }
@@ -896,10 +880,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 .s-roadmap .hoje { position: absolute; left: 1190px; top: 18px; font: 400 36px/1 "Placa", sans-serif; text-transform: uppercase; color: #70d44b; }
 .s-roadmap .hoje::before { content: ""; position: absolute; left: -26px; top: -18px; width: 8px; height: 70px; background: #70d44b; }
 
-/* 15 · o alto-falante "fala" quando o painel acende */
-.passo.on .ico-som path { animation: arcoPulso .5s linear infinite alternate; }
-
-/* 17 · as fotos abrem em recortes e o carro herói sai de cena */
+/* 16 · as fotos abrem em recortes e o carro herói sai de cena */
 .slide.is-in .membro img { animation: abreFoto .6s var(--corte) both; animation-delay: calc(.35s + var(--i) * .09s); }
 .s-time .carro-sai { left: 0; top: 640px; width: 260px; height: 130px; color: #f3f4f1; transform: translateX(830px); }
 .slide.is-in.s-time .carro-sai { animation: saiDeCena 1.6s cubic-bezier(.6,0,.9,.6) forwards 2.6s; }
@@ -921,7 +902,7 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 @keyframes pulsa { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
 
 /* =====================================================================
-   16 · A SIMULAÇÃO — o vídeo ocupa o palco e toca sozinho ao entrar (deck.js)
+   15 · A SIMULAÇÃO — o vídeo ocupa o palco e toca sozinho ao entrar (deck.js)
    ===================================================================== */
 .s-video { background: var(--floresta); }
 .s-video .video-cheio { left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; background: var(--floresta); }
