@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1890" height="700" viewBox="0 0 1890 700" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1890" height="700" fill="#FFFFFF"/>
+<text x="20" y="36" font-size="20" font-weight="700" fill="#000000">VITARE · Arquitetura da solução (diagrama de implantação UML)</text>
+<text x="200" y="72" font-size="12" font-weight="600" letter-spacing="1.5" fill="#000000" text-anchor="middle">VEÍCULO</text>
+<text x="767" y="72" font-size="12" font-weight="600" letter-spacing="1.5" fill="#000000" text-anchor="middle">PUNHO DO MANOBRISTA</text>
+<text x="1245" y="72" font-size="12" font-weight="600" letter-spacing="1.5" fill="#000000" text-anchor="middle">GARAGEM</text>
+<text x="1640" y="72" font-size="12" font-weight="600" letter-spacing="1.5" fill="#000000" text-anchor="middle">BASE</text>
+<polygon points="20,102 32,90 380,90 368,102" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.8"/>
+<polygon points="368,102 380,90 380,508 368,520" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.8"/>
+<rect x="20" y="102" width="348" height="418" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<text x="194.0" y="119" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="194.0" y="139" font-size="16" font-weight="700" fill="#000000" text-anchor="middle">Sensor de proximidade (×4)</text>
+<text x="194.0" y="154" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF001 · RF002 · RNF-CAP03 · RNF-SUP02</text>
+<polygon points="40,184 49,175 360,175 351,184" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="351,184 360,175 360,291 351,300" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="40" y="184" width="311" height="116" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="195.5" y="201" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="195.5" y="219" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">ESP32 (sensor)</text>
+<text x="195.5" y="234" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF004 · RF005 · RF006 · RF007 · RF046</text>
+<text x="195.5" y="248" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RN01 · RNF-DES02</text>
+<rect x="60" y="258" width="280" height="28" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M325,265.0 h6 l4,4 v10 h-10 z M331,265.0 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="192.5" y="276.5" font-size="12" fill="#000000" text-anchor="middle">firmware-sensor.bin</text>
+<polygon points="40,379 49,370 140,370 131,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="131,379 140,370 140,491 131,500" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="40" y="379" width="91" height="121" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="85.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="85.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">HC-SR04</text>
+<text x="85.5" y="427.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF004</text>
+<text x="85.5" y="441.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-CONF01</text>
+<polygon points="150,379 159,370 250,370 241,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="241,379 250,370 250,491 241,500" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="150" y="379" width="91" height="121" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="195.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="195.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">LED RGB</text>
+<text x="195.5" y="427.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF008 · RF041</text>
+<text x="195.5" y="441.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RN12</text>
+<polygon points="260,379 269,370 360,370 351,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="351,379 360,370 360,491 351,500" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="260" y="379" width="91" height="121" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="305.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="305.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Bateria</text>
+<text x="305.5" y="429.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">18650</text>
+<text x="305.5" y="444.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF038</text>
+<text x="305.5" y="458.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-CONF05</text>
+<polygon points="470,102 482,90 1064,90 1052,102" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.8"/>
+<polygon points="1052,102 1064,90 1064,668 1052,680" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.8"/>
+<rect x="470" y="102" width="582" height="578" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<text x="761.0" y="119" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="761.0" y="139" font-size="16" font-weight="700" fill="#000000" text-anchor="middle">Pulseira</text>
+<text x="761.0" y="154" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-USAB03 · RNF-USAB05</text>
+<polygon points="490,184 499,175 1044,175 1035,184" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1035,184 1044,175 1044,291 1035,300" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="490" y="184" width="545" height="116" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="762.5" y="201" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="762.5" y="219" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">ESP32 (pulseira)</text>
+<text x="762.5" y="234" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF003 · RF009 · RF011 · RF017 a RF020 · RF025 · RF032 · RF036</text>
+<text x="762.5" y="248" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RN02 · RNF-DES01 · RNF-CONF04 · RNF-CAP01</text>
+<rect x="510" y="258" width="514" height="28" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1009,265.0 h6 l4,4 v10 h-10 z M1015,265.0 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="759.5" y="276.5" font-size="12" fill="#000000" text-anchor="middle">firmware-pulseira.bin</text>
+<polygon points="490,379 499,370 564,370 555,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="555,379 564,370 564,506 555,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="490" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="522.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="522.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">DFPlayer</text>
+<text x="522.5" y="429.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Mini</text>
+<text x="522.5" y="444.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF010</text>
+<text x="522.5" y="458.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF012</text>
+<text x="522.5" y="472.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-SUP06</text>
+<rect x="495" y="482" width="56" height="24" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M536,487.0 h6 l4,4 v10 h-10 z M542,487.0 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="515.5" y="498.5" font-size="12" fill="#000000" text-anchor="middle">mp3</text>
+<polygon points="570,379 579,370 644,370 635,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="635,379 644,370 644,506 635,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="570" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="602.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="602.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Display</text>
+<text x="602.5" y="429.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">OLED</text>
+<text x="602.5" y="444.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF050</text>
+<text x="602.5" y="458.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF015</text>
+<polygon points="650,379 659,370 724,370 715,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="715,379 724,370 724,506 715,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="650" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="682.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="682.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Motor de</text>
+<text x="682.5" y="429.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">vibração</text>
+<text x="682.5" y="444.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF010</text>
+<text x="682.5" y="458.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-USAB01</text>
+<polygon points="730,379 739,370 804,370 795,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="795,379 804,370 804,506 795,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="730" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="762.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="762.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">LED azul</text>
+<text x="762.5" y="427.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF016</text>
+<text x="762.5" y="441.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RN13</text>
+<text x="762.5" y="455.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-CONF02</text>
+<polygon points="810,379 819,370 884,370 875,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="875,379 884,370 884,506 875,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="810" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="842.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="842.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">LED RGB</text>
+<text x="842.5" y="427.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF016</text>
+<text x="842.5" y="441.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RN12</text>
+<polygon points="890,379 899,370 964,370 955,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="955,379 964,370 964,506 955,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="890" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="922.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="922.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Botão</text>
+<text x="922.5" y="427.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF014</text>
+<text x="922.5" y="441.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF015</text>
+<text x="922.5" y="455.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF045</text>
+<text x="922.5" y="469.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF050</text>
+<text x="922.5" y="483.5" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-USAB04</text>
+<polygon points="970,379 979,370 1044,370 1035,379" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1035,379 1044,370 1044,506 1035,515" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="970" y="379" width="65" height="136" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1002.5" y="396" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1002.5" y="412.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Bateria</text>
+<text x="1002.5" y="429.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">LiPo</text>
+<text x="1002.5" y="444.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF030</text>
+<text x="1002.5" y="458.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RN19</text>
+<text x="1002.5" y="472.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-CONF05</text>
+<polygon points="490,564 499,555 564,555 555,564" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="555,564 564,555 564,656 555,665" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="490" y="564" width="65" height="101" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="522.5" y="581" font-size="9.5" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="522.5" y="597.5" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">Alto-</text>
+<text x="522.5" y="614.0" font-size="12.5" font-weight="700" fill="#000000" text-anchor="middle">-falante</text>
+<text x="522.5" y="629.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RF037</text>
+<text x="522.5" y="643.0" font-size="10.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-USAB02</text>
+<polygon points="1160,169 1169,160 1330,160 1321,169" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1321,169 1330,160 1330,266 1321,275" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="1160" y="169" width="161" height="106" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1240.5" y="186" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1240.5" y="204" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Roteador</text>
+<text x="1240.5" y="222" font-size="12" font-weight="400" fill="#000000" text-anchor="middle">Wi-Fi mesh</text>
+<text x="1240.5" y="237" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF024 · RF046</text>
+<text x="1240.5" y="251" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-ORG05</text>
+<polygon points="1410,102 1422,90 1870,90 1858,102" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.8"/>
+<polygon points="1858,102 1870,90 1870,498 1858,510" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.8"/>
+<rect x="1410" y="102" width="448" height="408" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+<text x="1634.0" y="119" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1634.0" y="139" font-size="16" font-weight="700" fill="#000000" text-anchor="middle">Raspberry Pi (base)</text>
+<text x="1634.0" y="154" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-CONF08 · RN15</text>
+<polygon points="1430,179 1439,170 1610,170 1601,179" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1601,179 1610,170 1610,286 1601,295" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="1430" y="179" width="171" height="116" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1515.5" y="196" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1515.5" y="214" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Mosquitto</text>
+<text x="1515.5" y="232" font-size="12" font-weight="400" fill="#000000" text-anchor="middle">broker MQTT :1883</text>
+<text x="1515.5" y="247" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF025 · RF046 · RF048</text>
+<text x="1515.5" y="261" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-REST02</text>
+<polygon points="1680,179 1689,170 1850,170 1841,179" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1841,179 1850,170 1850,336 1841,345" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="1680" y="179" width="161" height="166" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1760.5" y="196" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1760.5" y="214" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Node-RED :1880</text>
+<text x="1760.5" y="229" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF046 · RF047 · RF048</text>
+<rect x="1695" y="240" width="140" height="28" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1820,247.0 h6 l4,4 v10 h-10 z M1826,247.0 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1757.5" y="258.5" font-size="12" fill="#000000" text-anchor="middle">registros.csv <tspan font-weight="600" fill="#000000">RN06</tspan></text>
+<rect x="1695" y="278" width="140" height="28" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1820,285.0 h6 l4,4 v10 h-10 z M1826,285.0 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1757.5" y="296.5" font-size="12" fill="#000000" text-anchor="middle">flows.json</text>
+<polygon points="1680,394 1689,385 1850,385 1841,394" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1841,394 1850,385 1850,486 1841,495" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="1680" y="394" width="161" height="101" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1760.5" y="411" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1760.5" y="429" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Navegador</text>
+<text x="1760.5" y="447" font-size="12" font-weight="400" fill="#000000" text-anchor="middle">localhost:1880/ui</text>
+<text x="1760.5" y="462" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF047 · RN15</text>
+<text x="1760.5" y="476" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RNF-SUP08</text>
+<polygon points="1680,574 1689,565 1850,565 1841,574" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.4"/>
+<polygon points="1841,574 1850,565 1850,636 1841,645" fill="#000000" fill-opacity="0.3" stroke="#000000" stroke-width="1.4"/>
+<rect x="1680" y="574" width="161" height="71" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+<text x="1760.5" y="591" font-size="11" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1760.5" y="609" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Monitor da base</text>
+<text x="1760.5" y="624" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RN15 · RNF-SEG04</text>
+<line x1="90" y1="370" x2="90" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="200" y1="370" x2="200" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="310" y1="370" x2="310" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="522" y1="370" x2="522" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="602" y1="370" x2="602" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="682" y1="370" x2="682" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="762" y1="370" x2="762" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="842" y1="370" x2="842" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="922" y1="370" x2="922" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="1002" y1="370" x2="1002" y2="300" stroke="#000000" stroke-width="1.8"/>
+<line x1="522" y1="515" x2="522" y2="555" stroke="#000000" stroke-width="1.8"/>
+<line x1="360" y1="230" x2="490" y2="230" stroke="#000000" stroke-width="1.8" stroke-dasharray="8 5"/>
+<line x1="1044" y1="230" x2="1160" y2="230" stroke="#000000" stroke-width="1.8" stroke-dasharray="8 5"/>
+<line x1="1330" y1="230" x2="1410" y2="230" stroke="#000000" stroke-width="1.8"/>
+<line x1="1610" y1="230" x2="1680" y2="230" stroke="#000000" stroke-width="1.8"/>
+<line x1="1765" y1="345" x2="1765" y2="385" stroke="#000000" stroke-width="1.8"/>
+<line x1="1765" y1="495" x2="1765" y2="565" stroke="#000000" stroke-width="1.8"/>
+<rect x="93.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="95.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="203.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="205.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="313.0" y="326.0" width="27.799999999999997" height="18" fill="#FFFFFF"/>
+<text x="315.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">ADC</text>
+<rect x="525.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="527.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">UART</text>
+<rect x="605.0" y="326.0" width="27.799999999999997" height="18" fill="#FFFFFF"/>
+<text x="607.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">I2C</text>
+<rect x="685.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="687.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="765.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="767.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="845.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="847.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="925.0" y="326.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="927.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="1005.0" y="326.0" width="27.799999999999997" height="18" fill="#FFFFFF"/>
+<text x="1007.0" y="340.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">ADC</text>
+<rect x="525.0" y="526.0" width="41.0" height="18" fill="#FFFFFF"/>
+<text x="527.0" y="540.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">áudio</text>
+<rect x="378.1" y="207.0" width="93.8" height="46" fill="#FFFFFF"/>
+<text x="425.0" y="221.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">ESP-NOW</text>
+<text x="425.0" y="235.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">canal fixo</text>
+<text x="425.0" y="249.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF006 · RF046</text>
+<rect x="1081.5" y="207.0" width="41.0" height="46" fill="#FFFFFF"/>
+<text x="1102.0" y="221.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">Wi-Fi</text>
+<text x="1102.0" y="235.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">MQTT</text>
+<text x="1102.0" y="249.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF024</text>
+<rect x="1339.6" y="214.0" width="60.8" height="32" fill="#FFFFFF"/>
+<text x="1370.0" y="228.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">Ethernet</text>
+<text x="1370.0" y="242.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">RF046</text>
+<rect x="1611.3" y="214.0" width="67.4" height="32" fill="#FFFFFF"/>
+<text x="1645.0" y="228.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">MQTT</text>
+<text x="1645.0" y="242.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="middle">localhost</text>
+<rect x="1768.0" y="356.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="1770.0" y="370.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">HTTP</text>
+<rect x="1768.0" y="521.0" width="34.4" height="18" fill="#FFFFFF"/>
+<text x="1770.0" y="535.0" font-size="11.5" font-weight="600" fill="#000000" text-anchor="start">HDMI</text>
+<rect x="20" y="545" width="400" height="130" fill="#FFFFFF" stroke="#000000"/>
+<line x1="32" y1="565" x2="72" y2="565" stroke="#000000" stroke-width="1.8"/>
+<text x="80" y="569" font-size="11.5">com fio</text>
+<line x1="170" y1="565" x2="210" y2="565" stroke="#000000" stroke-width="1.8" stroke-dasharray="8 5"/>
+<text x="218" y="569" font-size="11.5">sem fio</text>
+<polygon points="32,587 38,581 72,581 66,587" fill="#000000" fill-opacity="0.18" stroke="#000000"/>
+<polygon points="66,587 72,581 72,595 66,601" fill="#000000" fill-opacity="0.3" stroke="#000000"/>
+<rect x="32" y="587" width="34" height="14" fill="#FFFFFF" stroke="#000000"/>
+<text x="80" y="596" font-size="11.5">«device»: hardware</text>
+<polygon points="32,617 38,611 72,611 66,617" fill="#000000" fill-opacity="0.18" stroke="#000000"/>
+<polygon points="66,617 72,611 72,625 66,631" fill="#000000" fill-opacity="0.3" stroke="#000000"/>
+<rect x="32" y="617" width="34" height="14" fill="#FFFFFF" stroke="#000000"/>
+<text x="80" y="626" font-size="11.5">«executionEnvironment»: software em execução</text>
+<rect x="310" y="556" width="40" height="18" fill="#FFFFFF" stroke="#000000"/>
+<text x="358" y="569" font-size="11.5">«artifact»</text>
+<text x="32" y="658" font-size="11.5" font-weight="600" fill="#000000">RF00X · RN0X · RNF-XXX</text>
+<text x="188" y="658" font-size="11.5">requisitos atendidos pelo elemento</text>
+</svg>

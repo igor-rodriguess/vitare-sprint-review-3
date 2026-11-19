@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1960" height="1020" viewBox="0 0 1960 1020" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1960" height="1020" fill="#FFFFFF"/>
+<text x="20" y="40" font-size="20" font-weight="700" fill="#000000">VITARE · Diagrama de implantação UML</text>
+<polygon points="20,82 32,70 510,70 498,82" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="498,82 510,70 510,638 498,650" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="20" y="82" width="478" height="568" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="259.0" y="97" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="259.0" y="113" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Sensor de proximidade (×4 por kit)</text>
+<text x="259.0" y="130" font-size="10.5" fill="#000000" text-anchor="middle">um em cada canto do veículo · ID = kit × 10 + posição</text>
+<polygon points="40,162 52,150 490,150 478,162" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="478,162 490,150 490,388 478,400" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="40" y="162" width="438" height="238" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="259.0" y="177" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="259.0" y="193" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">ESP32 38 pinos (microcontrolador do sensor)</text>
+<text x="259.0" y="210" font-size="10.5" fill="#000000" text-anchor="middle">Mede a distância a cada ~66 ms, faz média móvel de 5 leituras</text>
+<text x="259.0" y="224" font-size="10.5" fill="#000000" text-anchor="middle">e classifica: livre ≥ 50 cm, atenção 20–50 cm, perigo &lt; 20 cm ou falha.</text>
+<text x="259.0" y="238" font-size="10.5" fill="#000000" text-anchor="middle">Envia pelo ESP-NOW, no canal fixo do kit, ao mudar de estado ou a</text>
+<text x="259.0" y="252" font-size="10.5" fill="#000000" text-anchor="middle">cada 100 ms: 5 bytes (id, estado, distância em mm, bateria em %).</text>
+<polygon points="60,298 68,290 470,290 462,298" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="462,298 470,290 470,377 462,385" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="60" y="298" width="402" height="87" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="261.0" y="313" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="261.0" y="329" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Arduino-ESP32 / FreeRTOS · ESP-NOW, só envio</text>
+<rect x="80" y="342" width="370" height="30" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M432,349 h7 l4,4 v12 h-11 z M439,349 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="258.0" y="361.0" font-size="10.5" fill="#000000" text-anchor="middle"><tspan font-style="italic" fill="#000000">«artifact» </tspan>firmware-sensor.bin (main.ino + lib/vitare)</text>
+<polygon points="40,472 52,460 180,460 168,472" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="168,472 180,460 180,618 168,630" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="40" y="472" width="128" height="158" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="104.0" y="487" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="104.0" y="503" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">HC-SR04 (sensor)</text>
+<text x="104.0" y="520" font-size="10.5" fill="#000000" text-anchor="middle">Ultrassônico 40 kHz, 5 V</text>
+<text x="104.0" y="534" font-size="10.5" fill="#000000" text-anchor="middle">alcance 2 cm a 4 m</text>
+<text x="104.0" y="548" font-size="10.5" fill="#000000" text-anchor="middle">Coleta o tempo do eco</text>
+<text x="104.0" y="562" font-size="10.5" fill="#000000" text-anchor="middle">→ distância em cm</text>
+<text x="104.0" y="576" font-size="10.5" fill="#000000" text-anchor="middle">sem eco em 30 ms =</text>
+<text x="104.0" y="590" font-size="10.5" fill="#000000" text-anchor="middle">sem leitura</text>
+<polygon points="195,472 207,460 335,460 323,472" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="323,472 335,460 335,618 323,630" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="195" y="472" width="128" height="158" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="259.0" y="487" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="259.0" y="503" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">LED RGB (display)</text>
+<text x="259.0" y="520" font-size="10.5" fill="#000000" text-anchor="middle">Mostra a bateria:</text>
+<text x="259.0" y="534" font-size="10.5" fill="#000000" text-anchor="middle">verde &gt; 50%</text>
+<text x="259.0" y="548" font-size="10.5" fill="#000000" text-anchor="middle">amarelo 20 a 50%</text>
+<text x="259.0" y="562" font-size="10.5" fill="#000000" text-anchor="middle">vermelho &lt; 20%</text>
+<polygon points="350,472 362,460 490,460 478,472" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="478,472 490,460 490,618 478,630" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="350" y="472" width="128" height="158" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="414.0" y="487" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="414.0" y="503" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Bateria 18650</text>
+<text x="414.0" y="520" font-size="10.5" fill="#000000" text-anchor="middle">TP4056 + MT3608 → 5 V</text>
+<text x="414.0" y="534" font-size="10.5" fill="#000000" text-anchor="middle">chave liga/desliga</text>
+<text x="414.0" y="548" font-size="10.5" fill="#000000" text-anchor="middle">divisor 100 kΩ → ADC</text>
+<text x="414.0" y="562" font-size="10.5" fill="#000000" text-anchor="middle">lê de 3,3 V a 4,2 V</text>
+<path d="M20,670 H496 L510,684 V770 H20 Z" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M496,670 V684 H510" fill="none" stroke="#000000" stroke-width="1.2"/>
+<text x="30" y="689" font-size="11.5" font-weight="700" fill="#000000">Requisitos atendidos pelo sensor</text>
+<text x="30" y="704" font-size="10.5" fill="#000000">RF001/RF002 ID do kit e posição · RF006 envio em até 1 s</text>
+<text x="30" y="719" font-size="10.5" fill="#000000">RF007 + RN01 estados com média móvel e histerese de 5 cm</text>
+<text x="30" y="734" font-size="10.5" fill="#000000">RF046 canal fixo do kit · RF038 chave liga/desliga</text>
+<text x="30" y="749" font-size="10.5" fill="#000000">RF041 bateria não conectada · RN12 cores do LED de bateria</text>
+<polygon points="630,82 642,70 1150,70 1138,82" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1138,82 1150,70 1150,798 1138,810" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="630" y="82" width="508" height="728" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="884.0" y="97" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="884.0" y="113" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Pulseira (manobrista)</text>
+<text x="884.0" y="130" font-size="10.5" fill="#000000" text-anchor="middle">uma por kit · ID = kit × 10</text>
+<polygon points="650,162 662,150 790,150 778,162" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="778,162 790,150 790,278 778,290" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="650" y="162" width="128" height="128" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="714.0" y="177" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="714.0" y="193" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">DFPlayer Mini</text>
+<text x="714.0" y="210" font-size="10.5" fill="#000000" text-anchor="middle">Atuador: toca os</text>
+<text x="714.0" y="224" font-size="10.5" fill="#000000" text-anchor="middle">avisos do microSD</text>
+<rect x="660" y="240" width="118" height="30" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M760,247 h7 l4,4 v12 h-11 z M767,247 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="712.0" y="259.0" font-size="10.5" fill="#000000" text-anchor="middle"><tspan font-style="italic" fill="#000000">«artifact» </tspan>mp3</text>
+<polygon points="830,162 842,150 970,150 958,162" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="958,162 970,150 970,278 958,290" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="830" y="162" width="128" height="128" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="894.0" y="177" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="894.0" y="193" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Alto-falante 8 Ω</text>
+<text x="894.0" y="210" font-size="10.5" fill="#000000" text-anchor="middle">Atuador: fala o</text>
+<text x="894.0" y="224" font-size="10.5" fill="#000000" text-anchor="middle">aviso, ex.: perigo e</text>
+<text x="894.0" y="238" font-size="10.5" fill="#000000" text-anchor="middle">posição do sensor</text>
+<polygon points="990,162 1002,150 1130,150 1118,162" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1118,162 1130,150 1130,278 1118,290" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="990" y="162" width="128" height="128" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="1054.0" y="177" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1054.0" y="193" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Display OLED 0,96"</text>
+<text x="1054.0" y="210" font-size="10.5" fill="#000000" text-anchor="middle">Display: 1 clique</text>
+<text x="1054.0" y="224" font-size="10.5" fill="#000000" text-anchor="middle">mostra o kit e a</text>
+<text x="1054.0" y="238" font-size="10.5" fill="#000000" text-anchor="middle">bateria; apaga em 10 s</text>
+<polygon points="650,352 662,340 1130,340 1118,352" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1118,352 1130,340 1130,568 1118,580" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="650" y="352" width="468" height="228" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="884.0" y="367" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="884.0" y="383" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">ESP32 38 pinos (microcontrolador da pulseira)</text>
+<text x="884.0" y="400" font-size="10.5" fill="#000000" text-anchor="middle">Recebe os 4 sensores do kit pelo ESP-NOW (só aceita os MAC cadastrados).</text>
+<text x="884.0" y="414" font-size="10.5" fill="#000000" text-anchor="middle">Escolhe o sensor mais crítico e decide voz, vibração e LEDs na hora,</text>
+<text x="884.0" y="428" font-size="10.5" fill="#000000" text-anchor="middle">sem depender da rede. Guarda os registros em fila e publica por MQTT</text>
+<text x="884.0" y="442" font-size="10.5" fill="#000000" text-anchor="middle">em g01/kitN/eventos quando há Wi-Fi; acerta o relógio por g01/hora.</text>
+<polygon points="670,473 678,465 1110,465 1102,473" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="1102,473 1110,465 1110,557 1102,565" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="670" y="473" width="432" height="92" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="886.0" y="488" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="886.0" y="504" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Arduino-ESP32 / FreeRTOS · ESP-NOW + Wi-Fi/MQTT no mesmo canal</text>
+<rect x="690" y="518" width="400" height="30" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1072,525 h7 l4,4 v12 h-11 z M1079,525 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="883.0" y="537.0" font-size="10.5" fill="#000000" text-anchor="middle"><tspan font-style="italic" fill="#000000">«artifact» </tspan>firmware-pulseira.bin (main.ino + lib/vitare)</text>
+<polygon points="650,652 662,640 800,640 788,652" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="788,652 800,640 800,778 788,790" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="650" y="652" width="138" height="138" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="719.0" y="667" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="719.0" y="683" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Motor de vibração</text>
+<text x="719.0" y="700" font-size="10.5" fill="#000000" text-anchor="middle">Atuador: pulsos conforme</text>
+<text x="719.0" y="714" font-size="10.5" fill="#000000" text-anchor="middle">o alerta (atenção ou</text>
+<text x="719.0" y="728" font-size="10.5" fill="#000000" text-anchor="middle">perigo); em falha, 2</text>
+<text x="719.0" y="742" font-size="10.5" fill="#000000" text-anchor="middle">pulsos curtos a cada 2 s</text>
+<polygon points="815,652 827,640 965,640 953,652" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="953,652 965,640 965,778 953,790" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="815" y="652" width="138" height="138" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="884.0" y="667" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="884.0" y="683" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">LED azul + LED RGB</text>
+<text x="884.0" y="700" font-size="10.5" fill="#000000" text-anchor="middle">Display: azul = kit</text>
+<text x="884.0" y="714" font-size="10.5" fill="#000000" text-anchor="middle">completo e sem falha</text>
+<text x="884.0" y="728" font-size="10.5" fill="#000000" text-anchor="middle">(RN13); RGB = bateria</text>
+<text x="884.0" y="742" font-size="10.5" fill="#000000" text-anchor="middle">da pulseira</text>
+<polygon points="980,652 992,640 1130,640 1118,652" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1118,652 1130,640 1130,778 1118,790" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="980" y="652" width="138" height="138" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="1049.0" y="667" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1049.0" y="683" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Botão (entrada)</text>
+<text x="1049.0" y="700" font-size="10.5" fill="#000000" text-anchor="middle">3 s liga ou desliga;</text>
+<text x="1049.0" y="714" font-size="10.5" fill="#000000" text-anchor="middle">1 clique: display;</text>
+<text x="1049.0" y="728" font-size="10.5" fill="#000000" text-anchor="middle">2 cliques: autoteste;</text>
+<text x="1049.0" y="742" font-size="10.5" fill="#000000" text-anchor="middle">acorda do sono profundo</text>
+<path d="M630,830 H1136 L1150,844 V940 H630 Z" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1136,830 V844 H1150" fill="none" stroke="#000000" stroke-width="1.2"/>
+<text x="640" y="849" font-size="11.5" font-weight="700" fill="#000000">Requisitos atendidos pela pulseira</text>
+<text x="640" y="864" font-size="10.5" fill="#000000">RF003 só sensores cadastrados · RF009–RF012 + RN02 decisão do alerta</text>
+<text x="640" y="879" font-size="10.5" fill="#000000">RNF-CONF04 alerta sem depender da rede · RNF-DES01 alerta em até 500 ms</text>
+<text x="640" y="894" font-size="10.5" fill="#000000">RF014/RF015/RF050 botão e display · RF036 desligamento automático</text>
+<text x="640" y="909" font-size="10.5" fill="#000000">RF018 registros de uso e perigo · RF020 fila sem rede · RF025 formato</text>
+<text x="640" y="924" font-size="10.5" fill="#000000">RN13 LED azul · RN06 nenhum dado do manobrista é enviado</text>
+<polygon points="1240,372 1252,360 1420,360 1408,372" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1408,372 1420,360 1420,528 1408,540" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="1240" y="372" width="168" height="168" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="1324.0" y="387" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1324.0" y="403" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Roteador Wi-Fi mesh</text>
+<text x="1324.0" y="420" font-size="10.5" fill="#000000" text-anchor="middle">2,4 GHz, canal fixo, o</text>
+<text x="1324.0" y="434" font-size="10.5" fill="#000000" text-anchor="middle">mesmo dos sensores;</text>
+<text x="1324.0" y="448" font-size="10.5" fill="#000000" text-anchor="middle">rede local, sem internet.</text>
+<text x="1324.0" y="462" font-size="10.5" fill="#000000" text-anchor="middle">Pontos de acesso nos</text>
+<text x="1324.0" y="476" font-size="10.5" fill="#000000" text-anchor="middle">pontos de energia.</text>
+<text x="1324.0" y="490" font-size="10.5" fill="#000000" text-anchor="middle">Leva o MQTT à base.</text>
+<polygon points="1510,82 1522,70 1940,70 1928,82" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1928,82 1940,70 1940,748 1928,760" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="1510" y="82" width="418" height="678" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="1719.0" y="97" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1719.0" y="113" font-size="14" font-weight="700" fill="#000000" text-anchor="middle">Raspberry Pi (base)</text>
+<text x="1719.0" y="130" font-size="10.5" fill="#000000" text-anchor="middle">compartilhado por todos os kits da garagem</text>
+<polygon points="1530,158 1538,150 1920,150 1912,158" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="1912,158 1920,150 1920,732 1912,740" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="1530" y="158" width="382" height="582" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="1721.0" y="173" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1721.0" y="189" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Raspberry Pi OS (Linux)</text>
+<polygon points="1550,213 1558,205 1900,205 1892,213" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="1892,213 1900,205 1900,332 1892,340" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="1550" y="213" width="342" height="127" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="1721.0" y="228" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1721.0" y="244" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Mosquitto (broker MQTT) :1883</text>
+<text x="1721.0" y="261" font-size="10.5" fill="#000000" text-anchor="middle">Recebe g01/kitN/eventos das pulseiras</text>
+<text x="1721.0" y="275" font-size="10.5" fill="#000000" text-anchor="middle">e retém g01/hora para as pulseiras</text>
+<text x="1721.0" y="289" font-size="10.5" fill="#000000" text-anchor="middle">acertarem o relógio sem internet</text>
+<polygon points="1550,388 1558,380 1900,380 1892,388" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="1892,388 1900,380 1900,557 1892,565" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="1550" y="388" width="342" height="177" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="1721.0" y="403" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1721.0" y="419" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Node-RED (Node.js) :1880</text>
+<text x="1721.0" y="436" font-size="10.5" fill="#000000" text-anchor="middle">mqtt in g01/+/eventos → function</text>
+<text x="1721.0" y="450" font-size="10.5" fill="#000000" text-anchor="middle">(separa os campos por ;) → dashboard</text>
+<text x="1721.0" y="464" font-size="10.5" fill="#000000" text-anchor="middle">e file (grava registros.csv)</text>
+<text x="1721.0" y="478" font-size="10.5" fill="#000000" text-anchor="middle">inject a cada 30 s → publica g01/hora</text>
+<rect x="1570" y="525" width="150" height="30" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1702,532 h7 l4,4 v12 h-11 z M1709,532 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1638.0" y="544.0" font-size="10.5" fill="#000000" text-anchor="middle"><tspan font-style="italic" fill="#000000">«artifact» </tspan>flows.json</text>
+<rect x="1735" y="525" width="150" height="30" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1867,532 h7 l4,4 v12 h-11 z M1874,532 v4 h4" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1803.0" y="544.0" font-size="10.5" fill="#000000" text-anchor="middle"><tspan font-style="italic" fill="#000000">«artifact» </tspan>registros.csv</text>
+<polygon points="1550,613 1558,605 1900,605 1892,613" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.2"/>
+<polygon points="1892,613 1900,605 1900,712 1892,720" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.2"/>
+<rect x="1550" y="613" width="342" height="107" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<text x="1721.0" y="628" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«executionEnvironment»</text>
+<text x="1721.0" y="644" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Navegador · localhost:1880/ui</text>
+<text x="1721.0" y="661" font-size="10.5" fill="#000000" text-anchor="middle">Dashboard do Node-RED: uso de cada kit,</text>
+<text x="1721.0" y="675" font-size="10.5" fill="#000000" text-anchor="middle">alertas de perigo (hora, menor distância e</text>
+<text x="1721.0" y="689" font-size="10.5" fill="#000000" text-anchor="middle">duração) e bateria dos dispositivos</text>
+<polygon points="1510,812 1522,800 1940,800 1928,812" fill="#000000" fill-opacity="0.18" stroke="#000000" stroke-width="1.6"/>
+<polygon points="1928,812 1940,800 1940,878 1928,890" fill="#000000" fill-opacity="0.28" stroke="#000000" stroke-width="1.6"/>
+<rect x="1510" y="812" width="418" height="78" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+<text x="1719.0" y="827" font-size="10" font-style="italic" fill="#000000" text-anchor="middle">«device»</text>
+<text x="1719.0" y="843" font-size="12" font-weight="700" fill="#000000" text-anchor="middle">Monitor da base</text>
+<text x="1719.0" y="860" font-size="10.5" fill="#000000" text-anchor="middle">Mostra o painel ao supervisor operacional; o painel</text>
+<text x="1719.0" y="874" font-size="10.5" fill="#000000" text-anchor="middle">não fica disponível na rede Wi-Fi das pulseiras (RN15)</text>
+<path d="M1510,910 H1926 L1940,924 V1005 H1510 Z" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+<path d="M1926,910 V924 H1940" fill="none" stroke="#000000" stroke-width="1.2"/>
+<text x="1520" y="929" font-size="11.5" font-weight="700" fill="#000000">Requisitos atendidos pela base</text>
+<text x="1520" y="944" font-size="10.5" fill="#000000">RF046 grava o CSV · RF047 painel · RF048 hora sem internet</text>
+<text x="1520" y="959" font-size="10.5" fill="#000000">RNF-REST02 ESP-NOW no kit e MQTT local</text>
+<text x="1520" y="974" font-size="10.5" fill="#000000">Pendentes: RF042 (ESP-NOW criptografado) e RF043 (TLS)</text>
+<line x1="110" y1="460" x2="110" y2="400" stroke="#000000" stroke-width="1.6"/>
+<line x1="265" y1="460" x2="265" y2="400" stroke="#000000" stroke-width="1.6"/>
+<line x1="420" y1="460" x2="420" y2="400" stroke="#000000" stroke-width="1.6"/>
+<line x1="490" y1="370" x2="650" y2="370" stroke="#000000" stroke-width="1.6" stroke-dasharray="7 5"/>
+<line x1="715" y1="290" x2="715" y2="340" stroke="#000000" stroke-width="1.6"/>
+<line x1="790" y1="220" x2="830" y2="220" stroke="#000000" stroke-width="1.6"/>
+<line x1="1055" y1="290" x2="1055" y2="340" stroke="#000000" stroke-width="1.6"/>
+<line x1="725" y1="640" x2="725" y2="580" stroke="#000000" stroke-width="1.6"/>
+<line x1="890" y1="640" x2="890" y2="580" stroke="#000000" stroke-width="1.6"/>
+<line x1="1055" y1="640" x2="1055" y2="580" stroke="#000000" stroke-width="1.6"/>
+<line x1="1130" y1="450" x2="1240" y2="450" stroke="#000000" stroke-width="1.6" stroke-dasharray="7 5"/>
+<line x1="1420" y1="450" x2="1510" y2="450" stroke="#000000" stroke-width="1.6"/>
+<line x1="1725" y1="340" x2="1725" y2="380" stroke="#000000" stroke-width="1.6"/>
+<line x1="1725" y1="565" x2="1725" y2="605" stroke="#000000" stroke-width="1.6"/>
+<line x1="1725" y1="720" x2="1725" y2="800" stroke="#000000" stroke-width="1.6"/>
+<rect x="113.0" y="415.0" width="108.30000000000001" height="30" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="116.0" y="428.0" font-size="10" fill="#000000" text-anchor="start">GPIO TRIG/ECHO</text>
+<text x="116.0" y="441.0" font-size="10" fill="#000000" text-anchor="start">(ECHO c/ divisor)</text>
+<rect x="268.0" y="421.5" width="31.6" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="271.0" y="434.5" font-size="10" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="423.0" y="421.5" width="61.1" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="426.0" y="434.5" font-size="10" fill="#000000" text-anchor="start">5 V + ADC</text>
+<rect x="512.9" y="355.0" width="114.2" height="30" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="570.0" y="368.0" font-size="10" fill="#000000" text-anchor="middle">«ESP-NOW»</text>
+<text x="570.0" y="381.0" font-size="10" fill="#000000" text-anchor="middle">5 bytes · ≤ 100 ms</text>
+<rect x="718.0" y="306.5" width="31.6" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="721.0" y="319.5" font-size="10" fill="#000000" text-anchor="start">UART</text>
+<rect x="791.25" y="211.5" width="37.5" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="810.0" y="224.5" font-size="10" fill="#000000" text-anchor="middle">áudio</text>
+<rect x="1058.0" y="306.5" width="25.700000000000003" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1061.0" y="319.5" font-size="10" fill="#000000" text-anchor="start">I2C</text>
+<rect x="728.0" y="601.5" width="78.80000000000001" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="731.0" y="614.5" font-size="10" fill="#000000" text-anchor="start">GPIO · BC337</text>
+<rect x="893.0" y="601.5" width="31.6" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="896.0" y="614.5" font-size="10" fill="#000000" text-anchor="start">GPIO</text>
+<rect x="1058.0" y="601.5" width="84.7" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1061.0" y="614.5" font-size="10" fill="#000000" text-anchor="start">GPIO · acorda</text>
+<rect x="1151.5" y="435.0" width="67.0" height="30" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1185.0" y="448.0" font-size="10" fill="#000000" text-anchor="middle">«Wi-Fi»</text>
+<text x="1185.0" y="461.0" font-size="10" fill="#000000" text-anchor="middle">MQTT :1883</text>
+<rect x="1431.5" y="435.0" width="67.0" height="30" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1465.0" y="448.0" font-size="10" fill="#000000" text-anchor="middle">«Ethernet»</text>
+<text x="1465.0" y="461.0" font-size="10" fill="#000000" text-anchor="middle">IP fixo</text>
+<rect x="1728.0" y="351.5" width="102.4" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1731.0" y="364.5" font-size="10" fill="#000000" text-anchor="start">«MQTT» localhost</text>
+<rect x="1728.0" y="576.5" width="102.4" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1731.0" y="589.5" font-size="10" fill="#000000" text-anchor="start">«HTTP» localhost</text>
+<rect x="1728.0" y="751.5" width="43.400000000000006" height="17" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1731.0" y="764.5" font-size="10" fill="#000000" text-anchor="start">«HDMI»</text>
+<rect x="20" y="790" width="490" height="150" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="30" y="810" font-size="11.5" font-weight="700" fill="#000000">Legenda</text>
+<line x1="32" y1="830" x2="82" y2="830" stroke="#000000" stroke-width="1.6"/>
+<text x="92" y="834" font-size="10.5">com fio (GPIO, UART, I2C, ADC, Ethernet, HDMI)</text>
+<line x1="32" y1="852" x2="82" y2="852" stroke="#000000" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="92" y="856" font-size="10.5">sem fio (ESP-NOW e Wi-Fi)</text>
+<polygon points="32,875 39,868 82,868 75,875" fill="#000000" fill-opacity="0.18" stroke="#000000"/>
+<polygon points="75,875 82,868 82,883 75,890" fill="#000000" fill-opacity="0.28" stroke="#000000"/>
+<rect x="32" y="875" width="43" height="15" fill="#FFFFFF" stroke="#000000"/>
+<text x="92" y="884" font-size="10.5">«device»: hardware (nó físico)</text>
+<polygon points="32,905 39,898 82,898 75,905" fill="#000000" fill-opacity="0.18" stroke="#000000"/>
+<polygon points="75,905 82,898 82,913 75,920" fill="#000000" fill-opacity="0.28" stroke="#000000"/>
+<rect x="32" y="905" width="43" height="15" fill="#FFFFFF" stroke="#000000"/>
+<text x="92" y="914" font-size="10.5">«executionEnvironment»: software onde algo executa</text>
+<rect x="282" y="824" width="50" height="18" fill="#FFFFFF" stroke="#000000"/>
+<text x="342" y="837" font-size="10.5">«artifact»: arquivo instalado</text>
+<path d="M282,848 h40 l10,10 v12 h-50 z" fill="#FFFFFF" stroke="#000000"/>
+<text x="342" y="862" font-size="10.5">nota: requisitos atendidos</text>
+</svg>
