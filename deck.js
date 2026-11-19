@@ -66,6 +66,19 @@
   function entra(sl) {
     sl.classList.remove("is-in"); void sl.offsetWidth; sl.classList.add("is-in");
     conta(sl);
+    midia(sl);
+  }
+
+  /* ---------- Vídeo no slide: toca do começo ao entrar (e no R) e para nos outros ---------- */
+  function midia(ativo) {
+    slides.forEach(function (sl) {
+      sl.querySelectorAll("video").forEach(function (v) {
+        if (sl === ativo) {
+          try { v.currentTime = 0; } catch (e) {}
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else if (!v.paused) v.pause();
+      });
+    });
   }
 
   /* ---------- Transições entre slides ---------- */

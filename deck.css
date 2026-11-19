@@ -947,6 +947,28 @@ body.apresentador .painel-apresentador { display: grid; grid-template-columns: 1
 @keyframes saiDeCena { from { transform: translateX(830px); } to { transform: translateX(2200px); } }
 @keyframes pisca { 50% { opacity: 0; } }
 
+/* =====================================================================
+   18 · DIFERENCIAIS — três cartões que acendem um a um, como no 16
+   19 · A SIMULAÇÃO — o vídeo ocupa o palco e toca sozinho ao entrar (deck.js)
+   ===================================================================== */
+.s-diferenciais .titulo { top: 60px; font-size: 120px; }
+.s-diferenciais .quem { left: 96px; top: 210px; font: 400 30px/1.3 "Texto", sans-serif; color: var(--suave); }
+.s-diferenciais .passos3 { left: 0; top: 300px; width: 1920px; height: 780px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.s-diferenciais .passo[data-step] { opacity: 1; transition: none; }
+.s-diferenciais .passo h3 { font-size: 44px; padding-right: 20px; }
+.ico-placa .placa { fill: none; stroke: currentColor; stroke-width: 5; }
+.ico-placa .faixa, .ico-placa .letra { fill: currentColor; }
+.ico-placa .cantos, .ico-calor .vaga, .ico-calor .check, .ico-beacon .ondas { fill: none; stroke: var(--verde); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.ico-calor .c3 { fill: var(--atencao); opacity: .3; }
+.ico-calor .c2 { fill: var(--atencao); opacity: .65; }
+.ico-calor .c1 { fill: var(--perigo); }
+.ico-beacon .caixa { fill: currentColor; }
+.ico-beacon .ponto { fill: var(--bg-2); }
+.passo.on .ico-placa .cantos, .passo.on .ico-calor .vaga, .passo.on .ico-calor .check, .passo.on .ico-beacon .ondas { stroke: #70d44b; }
+.passo.on .ico-beacon .ponto { fill: var(--floresta); }
+.s-video { background: var(--floresta); }
+.s-video .video-cheio { left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; background: var(--floresta); }
+
 /* movimento reduzido: as cenas da rodada chegam ao estado final */
 @media (prefers-reduced-motion: reduce) {
   .estaciona .para { animation: none !important; transform: translateX(var(--x)); }

@@ -1056,8 +1056,76 @@
     </aside>
   </section>
 
-  <!-- 18 · O TIME (Igor) — fundo floresta para fechar -->
-  <section class="slide s-time" id="time" data-n="18" data-title="O time" data-trans="carro">
+  <!-- =====================================================================
+       CAPÍTULO G · DIFERENCIAIS (fundo papel, depois o vídeo em floresta) · slides 18 e 19
+       Proposta para as próximas sprints: ainda não entrou nos requisitos.
+       ===================================================================== -->
+
+  <!-- 18 · DIFERENCIAIS (Isaías)
+       passos: 0 título · 1 OCR da placa · 2 mapa de risco · 3 beacons -->
+  <section class="slide claro s-diferenciais" id="diferenciais" data-n="18" data-title="Três diferenciais" data-trans="carro">
+    <h2 class="titulo">Três <em>diferenciais.</em></h2>
+    <p class="quem">Proposta para as próximas sprints. A simulação a seguir usa dados fictícios.</p>
+
+    <div class="passos3">
+      <div class="passo" data-step="1">
+        <b class="num">1</b>
+        <svg class="ico-placa" viewBox="0 0 120 120" aria-hidden="true">
+          <path class="cantos" d="M10 34 V22 H22 M98 22 H110 V34 M110 86 V98 H98 M22 98 H10 V86"/>
+          <rect class="placa" x="22" y="40" width="76" height="40" rx="6"/>
+          <rect class="faixa" x="22" y="40" width="76" height="11" rx="4"/>
+          <rect class="letra" x="31" y="58" width="7" height="15" rx="2"/><rect class="letra" x="43" y="58" width="7" height="15" rx="2"/>
+          <rect class="letra" x="55" y="58" width="7" height="15" rx="2"/><rect class="letra" x="67" y="58" width="7" height="15" rx="2"/>
+          <rect class="letra" x="79" y="58" width="7" height="15" rx="2"/>
+        </svg>
+        <h3>A câmera lê a placa</h3>
+        <p>Duas redes neurais convolucionais: uma acha a placa na imagem, a outra lê cada caractere. A placa entra sozinha no registro do kit.</p>
+      </div>
+      <div class="passo" data-step="2">
+        <b class="num">2</b>
+        <svg class="ico-calor" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="c3" cx="44" cy="46" r="36"/><circle class="c2" cx="44" cy="46" r="23"/><circle class="c1" cx="44" cy="46" r="11"/>
+          <rect class="vaga" x="78" y="66" width="28" height="42" rx="5"/>
+          <path class="check" d="M85 88 l6 6 l10 -12"/>
+        </svg>
+        <h3>O mapa de risco escolhe a vaga</h3>
+        <p>Os quase-acidentes que a pulseira já registra viram um mapa da garagem. Carro de alto valor vai para a vaga com a menor nota de risco.</p>
+      </div>
+      <div class="passo" data-step="3">
+        <b class="num">3</b>
+        <svg class="ico-beacon" viewBox="0 0 120 120" aria-hidden="true">
+          <rect class="caixa" x="12" y="46" width="28" height="28" rx="7"/><circle class="ponto" cx="26" cy="60" r="5"/>
+          <path class="ondas" d="M54 47 a18 18 0 0 1 0 26 M67 37 a32 32 0 0 1 0 46 M80 27 a46 46 0 0 1 0 66"/>
+        </svg>
+        <h3>A pulseira guia até&nbsp;a&nbsp;vaga</h3>
+        <p>Beacons de bateria nas paredes. A pulseira acha a zona pelo sinal mais forte e fala o caminho. A posição não depende de Wi-Fi nem de tomada.</p>
+      </div>
+    </div>
+
+    <aside class="notes">
+      <p class="palco">O carro cruza a tela: capítulo dos diferenciais. Um avanço por cartão; o cartão acende em floresta.</p>
+      <p data-who="isaías">“Antes de fechar, três diferenciais que a gente quer propor para as próximas sprints. São propostas: ainda não estão nos requisitos.”</p>
+      <p data-who="isaías">“Primeiro: a câmera da entrada lê a placa com duas redes neurais. Uma acha a placa na imagem, a outra lê cada caractere. Assim a placa entra sozinha no registro do kit.”</p>
+      <p data-who="isaías">“Segundo: os quase-acidentes que a pulseira já registra viram um mapa de risco da garagem. Carro de alto valor vai para a vaga com a menor nota.”</p>
+      <p data-who="isaías">“Terceiro: beacons de bateria nas paredes. A pulseira mede o sinal de cada um, sabe em que zona está e fala o caminho até a vaga. Funciona sem Wi-Fi e sem tomada, que são duas restrições da garagem.”</p>
+    </aside>
+  </section>
+
+  <!-- 19 · A SIMULAÇÃO (Isaías) — o vídeo toca sozinho ao entrar; R repete do começo -->
+  <section class="slide s-video" id="diferenciais-video" data-n="19" data-title="Simulação dos diferenciais" data-trans="fade">
+    <video class="video-cheio" src="video/ocr-placa-vaga.mp4" muted playsinline preload="auto" aria-label="Simulação: leitura da placa, mapa de risco, beacons e pulseira"></video>
+
+    <aside class="notes">
+      <p class="palco">O vídeo começa sozinho e dura 1 min 31 s, sem som. R repete do começo. Narrar por cima, sem ler as legendas.</p>
+      <p class="palco">0:05 a câmera lê a placa · 0:17 as duas redes neurais (grade de detecção, filtro 3 × 3, camadas e a regra do Mercosul) · 0:39 o valor do carro · 0:48 o mapa de risco e a vaga 116 · 1:01 os beacons · 1:11 a pulseira guiando até a vaga · 1:25 fecho.</p>
+      <p data-who="isaías">“Aqui a rede lê 5 no lugar do S, com nota 0,58. Como a primeira posição da placa Mercosul só aceita letra, o sistema fica com a letra mais provável: o S.”</p>
+      <p data-who="isaías">“A pulseira não usa GPS, que não pega no subsolo. Ela fica com o beacon de sinal mais forte e só troca de zona quando outro passa 3 dB na frente.”</p>
+      <p class="palco">Se perguntarem: os dados são fictícios. A rede é um exemplo de arquitetura (552 mil pesos, cerca de 2,2 MB) e ainda precisa de treino com placas reais. O arquivo fica em video/ocr-placa-vaga.mp4, fora do git, como os vídeos de backup dos testes.</p>
+    </aside>
+  </section>
+
+  <!-- 20 · O TIME (Igor) — fundo floresta para fechar -->
+  <section class="slide s-time" id="time" data-n="20" data-title="O time" data-trans="carro">
     <div class="trafego trafego--topo" aria-hidden="true">
       <i class="pista"></i>
       <svg class="veic" style="--d:8s;--a:-2s;color:#70d44b" viewBox="-210 -105 420 210"><use href="#carro-dir"/></svg>
